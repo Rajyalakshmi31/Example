@@ -1,0 +1,120 @@
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/Rajya Lakshmi/gitkatas/git-katas/3-way-merge/exercise/.git/
+[master (root-commit) da3c211] Add file greeting.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 greeting.txt
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+[master ae0585a] Add content to greeting.txt
+ 1 file changed, 1 insertion(+)
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ git branch greeting
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ git switch greeting
+Switched to branch 'greeting'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (greeting)
+$ ls
+greeting.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (greeting)
+$ echo "all the best" > greeting.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (greeting)
+$ git add greeting.txt
+warning: in the working copy of 'greeting.txt', LF will be replaced by CRLF the next time Git touches it
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (greeting)
+$ git commit
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/Rajya Lakshmi/gitkatas/git-katas/3-way-merge/exercise/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/Rajya Lakshmi/gitkatas/git-katas/3-way-merge/exercise/.git/COMMIT_EDITMSG to Unix format...
+[greeting 4cb1076] "commit"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (greeting)
+$ git switch master
+Switched to branch 'master'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ git switch greeting
+Switched to branch 'greeting'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (greeting)
+$ cat greeting.txt
+all the best
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (greeting)
+$ git switch master
+Switched to branch 'master'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ touch README.md
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ echo "this 3-way-merge" >README.md
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ git add README.md
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ git commit
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/Rajya Lakshmi/gitkatas/git-katas/3-way-merge/exercise/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/Rajya Lakshmi/gitkatas/git-katas/3-way-merge/exercise/.git/COMMIT_EDITMSG to Unix format...
+[master b819911] "commited"
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ git log --oneline --graph --all
+* b819911 (HEAD -> master) "commited"
+| * 4cb1076 (greeting) "commit"
+|/
+* ae0585a Add content to greeting.txt
+* da3c211 Add file greeting.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ git diff master greeting
+diff --git a/README.md b/README.md
+deleted file mode 100644
+index 8acefca..0000000
+--- a/README.md
++++ /dev/null
+@@ -1 +0,0 @@
+-this 3-way-merge
+diff --git a/greeting.txt b/greeting.txt
+index ce01362..90add58 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +1 @@
+-hello
++all the best
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ git merge master greeting
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/Rajya Lakshmi/gitkatas/git-katas/3-way-merge/exercise/.git/MERGE_MSG to DOS format...
+dos2unix: converting file C:/Users/Rajya Lakshmi/gitkatas/git-katas/3-way-merge/exercise/.git/MERGE_MSG to Unix format...
+Merge made by the 'ort' strategy.
+ greeting.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ git merge master greeting
+Already up to date.
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ git log  --oneline --graph --all
+*   c768a86 (HEAD -> master) Merge branch 'greeting'
+|\
+| * 4cb1076 (greeting) "commit"
+* | b819911 "commited"
+|/
+* ae0585a Add content to greeting.txt
+* da3c211 Add file greeting.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/3-way-merge/exercise (master)
+$ ls
+README.md  greeting.txt
+
