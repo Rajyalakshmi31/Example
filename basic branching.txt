@@ -1,0 +1,146 @@
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/Rajya Lakshmi/gitkatas/git-katas/basic-branching/exercise/.git/
+warning: in the working copy of 'dummy.txt', LF will be replaced by CRLF the next time Git touches it
+[master (root-commit) df76ba2] dummy commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 dummy.txt
+Switched to a new branch 'second-branch'
+Switched to branch 'master'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git branch
+* master
+  second-branch
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git branch temp
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git branch
+* master
+  second-branch
+  temp
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git switch temp
+Switched to branch 'temp'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ git status
+On branch temp
+nothing to commit, working tree clean
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ git switch master
+Switched to branch 'master'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git switch temp
+Switched to branch 'temp'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ git status
+On branch temp
+nothing to commit, working tree clean
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ touch file1.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ echo "Rajya Lakshmi" > file1.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ git add file1.txt
+warning: in the working copy of 'file1.txt', LF will be replaced by CRLF the next time Git touches it
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ git commit
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/Rajya Lakshmi/gitkatas/git-katas/basic-branching/exercise/.git/COMMIT_EDITMSG to DOS format...
+dos2unix: converting file C:/Users/Rajya Lakshmi/gitkatas/git-katas/basic-branching/exercise/.git/COMMIT_EDITMSG to Unix format...
+[temp 4f5d391] commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ git log --online --graph
+fatal: unrecognized argument: --online
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ git log --oneline --graph
+* 4f5d391 (HEAD -> temp) commit
+* df76ba2 (second-branch, master) dummy commit
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ git switch master
+Switched to branch 'master'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git log --oneline --graph
+* df76ba2 (HEAD -> master, second-branch) dummy commit
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ touch file2.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git commit
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git log --oneline --graph
+* df76ba2 (HEAD -> master, second-branch) dummy commit
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git log --oneline --graph --all
+* 4f5d391 (temp) commit
+* df76ba2 (HEAD -> master, second-branch) dummy commit
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git switch temp
+Switched to branch 'temp'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ ls
+dummy.txt  file1.txt  file2.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ git switch master
+Switched to branch 'master'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ ls
+dummy.txt  file2.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (master)
+$ git switch temp
+Switched to branch 'temp'
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ ls
+dummy.txt  file1.txt  file2.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ git diff temp master
+diff --git a/file1.txt b/file1.txt
+deleted file mode 100644
+index 407aee4..0000000
+--- a/file1.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-Rajya Lakshmi
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ cat file2.txt
+
+Rajya Lakshmi@DESKTOP-J4SD3DU MINGW64 ~/gitkatas/git-katas/basic-branching/exercise (temp)
+$ cat file1.txt
+Rajya Lakshmi
